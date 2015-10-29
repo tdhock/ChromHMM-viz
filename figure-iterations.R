@@ -6,25 +6,33 @@ works_with_R("3.2.2",
 load("iterations.RData")
 
 viz <- list(
-  emission=ggplot()+
-    coord_equal()+
+  parameters=ggplot()+
+    ggtitle("parameters at selected iteration")+
     scale_fill_gradient(low="white", high="blue")+
     geom_tile(aes(state, experiment, fill=frequency,
                   key=paste(state, experiment),
                   showSelected=iteration),
-              data=iterations$emission),
-  transition=ggplot()+
-    coord_equal()+
-    scale_fill_gradient(low="white", high="red")+
-    geom_tile(aes(state.to, state.from, fill=probability,
+              data=data.table(iterations$emission, parameters="emission"))+
+    scale_color_gradient(low="white", high="red")+
+    theme_bw()+
+    theme_animint(height=600, width=350)+
+    theme(panel.margin=grid::unit(0, "cm"))+
+    facet_grid(parameters ~ .,
+               ##space="free",
+               scales="free_y")+
+    scale_y_discrete(drop=FALSE)+
+    geom_point(aes(state.to, state.from, color=probability,
                   key=paste(state.from, state.to),
                   showSelected=iteration),
-              data=iterations$transition),
+               size=10,
+               data=data.table(iterations$transition, parameters="transition")),
   metrics=ggplot()+
+    ggtitle("convergence metrics, select iteration")+
     make_tallrect(metrics, "iteration")+
     geom_line(aes(iteration, metric.value),
               data=iterations$metrics)+
     theme_bw()+
+    theme_animint(height=500)+
     theme(panel.margin=grid::unit(0, "cm"))+
     facet_grid(metric.name ~ ., scales="free_y"),
   time=list(variable="iteration", ms=500),
