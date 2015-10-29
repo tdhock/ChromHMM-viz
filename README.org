@@ -6,3 +6,6 @@ Collaboration with Juan Rada-Vilela
 
 Read txt files to iterations.RData.
 
+Data viz with 1 interaction variable (iteration) 
+
+http://bl.ocks.org/tdhock/raw/8db1f75d2595e0a570f9/
