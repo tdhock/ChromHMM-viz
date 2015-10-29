@@ -1,8 +1,12 @@
 Visualizing ChromHMM
 
-Collaboration with Juan Rada-Vilela
+Collaboration with https://github.com/jcrada
 
-29 Oct 2015
+*** TODOs
+- add coverage data plot for one/several genomic regions.
+- add selector for number of states.
+
+*** 29 Oct 2015
 
 Read txt files to iterations.RData.
 
