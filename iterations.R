@@ -54,19 +54,21 @@ ggplot()+
 metric.mat <- read.table(
   "toby/iterations/iterations.txt",
   header=TRUE, na.strings="-")
-metric.mat$log.neg.log.lik <- log(-metric.mat$EstimatedLogLikelihood)
+names(metric.mat)[2] <- "log.lik"
+names(metric.mat)[4] <- "seconds"
+metric.mat$log.neg.log.lik <- log(-metric.mat$log.lik)
 metrics.list <- list()
 for(metric.name in names(metric.mat)[-1]){
   sub.mat <- metric.mat#[-(1:2),]
   metrics.list[[metric.name]] <-
     data.table(metric.name,
                metric.value=sub.mat[[metric.name]],
-               metric=sub.mat[[1]])
+               iteration=sub.mat[[1]])
 }
 metrics <- do.call(rbind, metrics.list)
 
 ggplot()+
-  geom_line(aes(metric, metric.value),
+  geom_line(aes(iteration, metric.value),
             data=metrics)+
   theme_bw()+
   theme(panel.margin=grid::unit(0, "cm"))+
