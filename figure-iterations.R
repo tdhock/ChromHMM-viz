@@ -18,7 +18,7 @@ viz <- list(
     theme_animint(height=600, width=350)+
     theme(panel.margin=grid::unit(0, "cm"))+
     facet_grid(parameters ~ .,
-               ##space="free",
+               space="free",
                scales="free_y")+
     scale_y_discrete(drop=FALSE)+
     geom_point(aes(state.to, state.from, color=probability,
@@ -38,6 +38,11 @@ viz <- list(
   time=list(variable="iteration", ms=500),
   duration=list(iteration=500),
   title="ChromHMM parameter fitting for one iPS sample")
+
+viz$parameters+
+  facet_grid(parameters ~ iteration,
+             space="free",
+             scales="free_y")
 
 animint2dir(viz, "figure-iterations")
 

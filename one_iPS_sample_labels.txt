@@ -1,0 +1,21 @@
+chr1:26,832,569-26,853,257 constant
+chr1:26,939,779-26,947,829 oneChange
+chr1:26,947,988-26,956,947 oneChange
+chr1:26,962,781-27,008,146 constant
+chr1:27,015,567-27,019,439 oneChange
+chr1:27,087,243-27,101,104 constant
+chr1:27,103,802-27,114,320 oneChange
+chr1:27,131,463-27,138,974 oneChange
+chr1:27,158,150-27,178,712 constant
+
+chr2:54,333,905-54,342,946 oneChange
+chr2:54,348,024-54,358,350 oneChange
+chr2:54,389,928-54,428,938 constant
+chr2:54,458,268-54,505,675 constant
+chr2:54,508,817-54,517,273 oneChange
+chr2:54,517,935-54,524,498 oneChange
+chr2:54,545,771-54,552,787 oneChange
+chr2:54,605,219-54,644,979 constant
+chr2:54,782,696-54,786,465 oneChange
+chr2:54,882,004-54,905,739 oneChange
+chr2:55,012,978-55,076,769 constant

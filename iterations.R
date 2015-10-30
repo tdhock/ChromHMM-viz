@@ -75,8 +75,11 @@ ggplot()+
   facet_grid(metric.name ~ ., scales="free_y")
 
 iterations <- list(
-  metrics=metrics,
-  transition=transition,
-  emission=emission)
+  metrics=data.frame(metrics),
+  transition=data.frame(transition),
+  emission=data.frame(emission))
+## ChromHMMiterations <- iterations
+## prompt(iterations, file="~/R/animint/man/ChromHMMiterations.Rd")
+## save(ChromHMMiterations, file="~/R/animint/data/ChromHMMiterations.RData")
 
 save(iterations, file="iterations.RData")
