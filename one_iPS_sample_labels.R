@@ -75,11 +75,11 @@ bigwig.pattern <- paste0(
   "[.]signal[.]bigwig")
 bigwig.mat <- str_match_named(basename(bigwig.file.vec), bigwig.pattern)
 
-labels.by.chunk <- split(not.na, not.na$chunk.id)
+labels.by.chrom <- split(not.na, not.na$chrom)
 coverage.dt.list <- list()
-for(chunk.str in names(labels.by.chunk)){
-  chunk.labels <- labels.by.chunk[[chunk.str]]
-  chrom <- chunk.labels$chrom[1]
+chunk.dt.list <- list()
+for(chrom in names(labels.by.chrom)){
+  chunk.labels <- labels.by.chrom[[chrom]]
   regionStart <- min(chunk.labels$regionStart)
   regionEnd <- max(chunk.labels$regionEnd)
   region.size <- regionEnd - regionStart
@@ -87,6 +87,8 @@ for(chunk.str in names(labels.by.chunk)){
   chunkStart <- regionStart - zoom.bases
   chunkEnd <- regionEnd + zoom.bases
   position <- unique(as.integer(seq(chunkStart, chunkEnd, l=1000)))
+  chunk.dt.list[[chrom]] <-
+    data.table(chrom, regionStart, regionEnd, chunkStart, chunkEnd)
   for(bigwig.i in seq_along(bigwig.file.vec)){
     experiment <- bigwig.mat[bigwig.i, "experiment"]
     bigwig.file <- bigwig.file.vec[[bigwig.i]]
@@ -99,7 +101,57 @@ for(chunk.str in names(labels.by.chunk)){
   }
 }
 coverage.dt <- do.call(rbind, coverage.dt.list)
+chunk.dt <- do.call(rbind, chunk.dt.list)
+setkey(chunk.dt, chrom, chunkStart, chunkEnd)
 
-one_iPS_sample_labels <- list(coverage=coverage.dt, labels=data.table(not.na))
+expected.changes <- c(constant=0, oneChange=1)
+
+out.dir.vec <- Sys.glob("out-*")
+all.segs.list <- list()
+all.errors.list <- list()
+for(out.dir in out.dir.vec){
+  maxStates <- as.integer(sub(".*-", "", out.dir))
+  segments.bed <- Sys.glob(paste0(out.dir, "/*_segments.bed"))
+  stopifnot(length(segments.bed) == 1)
+  seg.dt <- fread(segments.bed)
+  setnames(seg.dt, c("chrom", "segStart", "segEnd", "state"))
+  setkey(seg.dt, chrom, segStart, segEnd)
+  over.dt <- foverlaps(seg.dt, chunk.dt, nomatch=0L)
+  over.dt[, start := ifelse(segStart < chunkStart, chunkStart, segStart)]
+  over.dt[, end := ifelse(chunkEnd < segEnd, chunkEnd, segEnd)]
+  segs.by.chrom <- split(over.dt, over.dt$chrom)
+  for(chrom in names(segs.by.chrom)){
+    chrom.segs <- segs.by.chrom[[chrom]]
+    all.segs.list[[paste(out.dir, chrom)]] <- chrom.segs
+    chrom.labels <- data.table(labels.by.chrom[[chrom]])
+    change.vec <- chrom.segs$end[-1]
+    chrom.labels$changes <- NA
+    for(label.i in 1:nrow(chrom.labels)){
+      l <- chrom.labels[label.i, ]
+      in.region <- l$regionStart < change.vec & change.vec < l$regionEnd
+      chrom.labels$changes[label.i] <- sum(in.region)
+    }
+    chrom.labels[, expected := expected.changes[paste(label)] ]
+    chrom.labels[, fp := expected < changes ]
+    chrom.labels[, fn := changes < expected ]
+    chrom.labels[, status := ifelse(fp, "false positive",
+                            ifelse(fn, "false negative", "correct"))]
+    all.errors.list[[paste(out.dir, chrom)]] <-
+      data.table(maxStates, chrom.labels)
+  }
+}
+all.errors <- do.call(rbind, all.errors.list)
+all.segs <- do.call(rbind, all.segs.list)
+
+fp.fn <- all.errors[, list(fp=sum(fp), fn=sum(fn)), by=maxStates]
+fp.fn[, errors := fp + fn]
+fp.fn[order(maxStates), ]
+
+
+one_iPS_sample_labels <- list(
+  coverage=coverage.dt,
+  labels=data.table(not.na),
+  segments=all.segs,
+  errors=all.errors)
 
 save(one_iPS_sample_labels, file="one_iPS_sample_labels.RData")
