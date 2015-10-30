@@ -1,6 +1,6 @@
 works_with_R("3.2.2",
              "tdhock/ggplot2@a8b06ddb680acdcdbd927773b1011c562134e4d2",
-             "tdhock/animint@14835d5638d4cf234219a16ee313859c770164ff",
+             "tdhock/animint@5f06aee037663c248297592fac6215388230d415",
              data.table="1.9.6")
 
 load("iterations.RData")
@@ -15,7 +15,7 @@ viz <- list(
               data=data.table(iterations$emission, parameters="emission"))+
     scale_color_gradient(low="white", high="red")+
     theme_bw()+
-    theme_animint(height=600, width=350)+
+    theme_animint(height=500, width=350)+
     theme(panel.margin=grid::unit(0, "cm"))+
     facet_grid(parameters ~ .,
                space="free",
@@ -28,7 +28,7 @@ viz <- list(
                data=data.table(iterations$transition, parameters="transition")),
   metrics=ggplot()+
     ggtitle("convergence metrics, select iteration")+
-    make_tallrect(metrics, "iteration")+
+    make_tallrect(iterations$metrics, "iteration")+
     geom_line(aes(iteration, metric.value),
               data=iterations$metrics)+
     theme_bw()+
@@ -38,11 +38,6 @@ viz <- list(
   time=list(variable="iteration", ms=500),
   duration=list(iteration=500),
   title="ChromHMM parameter fitting for one iPS sample")
-
-viz$parameters+
-  facet_grid(parameters ~ iteration,
-             space="free",
-             scales="free_y")
 
 animint2dir(viz, "figure-iterations")
 
