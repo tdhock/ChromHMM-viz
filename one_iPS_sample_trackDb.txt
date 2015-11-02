@@ -1,4 +1,4 @@
-track ac3-i1-h2716
+track ac3-i1-h2726
 compositeTrack on
 shortLabel Histone - CEEHRC
 longLabel Histone Modifications - CEEHRC
@@ -16,7 +16,7 @@ color 214,39,40
 
     track McGill_MS032901_ipsc_H3K27ac_signal
     type bigWig
-    parent ac3-i1-h2716 on
+    parent ac3-i1-h2726 on
     shortLabel 032901ipsc.k27ac
     longLabel MS032901 | human | induced pluripotent stem cell | H3K27ac | signal
     visibility full
@@ -25,9 +25,20 @@ color 214,39,40
     autoScale on
     subGroups sampleType=inducedpluripotentstemcell assayType=H3K27ac view=signal
     
+    track McGill_MS032901_ipsc_H3K27ac_peaks
+    type bigBed
+    parent ac3-i1-h2726 on
+    shortLabel 032901ipsc.k27ac
+    longLabel MS032901 | human | induced pluripotent stem cell | H3K27ac | peaks
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0329/MS032901/H3K27ac/MS032901.ipsc.H3K27ac.peaks.bigBed
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=inducedpluripotentstemcell assayType=H3K27ac view=peaks
+    
     track McGill_MS032901_ipsc_H3K27me3_signal
     type bigWig
-    parent ac3-i1-h2716 on
+    parent ac3-i1-h2726 on
     shortLabel 032901ipsc.k27me3
     longLabel MS032901 | human | induced pluripotent stem cell | H3K27me3 | signal
     visibility full
@@ -36,9 +47,20 @@ color 214,39,40
     autoScale on
     subGroups sampleType=inducedpluripotentstemcell assayType=H3K27me3 view=signal
     
+    track McGill_MS032901_ipsc_H3K27me3_peaks
+    type bigBed
+    parent ac3-i1-h2726 on
+    shortLabel 032901ipsc.k27me3
+    longLabel MS032901 | human | induced pluripotent stem cell | H3K27me3 | peaks
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0329/MS032901/H3K27me3/MS032901.ipsc.H3K27me3.peaks.bigBed
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=inducedpluripotentstemcell assayType=H3K27me3 view=peaks
+    
     track McGill_MS032901_ipsc_H3K36me3_signal
     type bigWig
-    parent ac3-i1-h2716 on
+    parent ac3-i1-h2726 on
     shortLabel 032901ipsc.k36me3
     longLabel MS032901 | human | induced pluripotent stem cell | H3K36me3 | signal
     visibility full
@@ -47,9 +69,20 @@ color 214,39,40
     autoScale on
     subGroups sampleType=inducedpluripotentstemcell assayType=H3K36me3 view=signal
     
+    track McGill_MS032901_ipsc_H3K36me3_peaks
+    type bigBed
+    parent ac3-i1-h2726 on
+    shortLabel 032901ipsc.k36me3
+    longLabel MS032901 | human | induced pluripotent stem cell | H3K36me3 | peaks
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0329/MS032901/H3K36me3/MS032901.ipsc.H3K36me3.peaks.bigBed
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=inducedpluripotentstemcell assayType=H3K36me3 view=peaks
+    
     track McGill_MS032901_ipsc_H3K4me1_signal
     type bigWig
-    parent ac3-i1-h2716 on
+    parent ac3-i1-h2726 on
     shortLabel 032901ipsc.k4me1
     longLabel MS032901 | human | induced pluripotent stem cell | H3K4me1 | signal
     visibility full
@@ -58,9 +91,20 @@ color 214,39,40
     autoScale on
     subGroups sampleType=inducedpluripotentstemcell assayType=H3K4me1 view=signal
     
+    track McGill_MS032901_ipsc_H3K4me1_peaks
+    type bigBed
+    parent ac3-i1-h2726 on
+    shortLabel 032901ipsc.k4me1
+    longLabel MS032901 | human | induced pluripotent stem cell | H3K4me1 | peaks
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0329/MS032901/H3K4me1/MS032901.ipsc.H3K4me1.peaks.bigBed
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=inducedpluripotentstemcell assayType=H3K4me1 view=peaks
+    
     track McGill_MS032901_ipsc_H3K4me3_signal
     type bigWig
-    parent ac3-i1-h2716 on
+    parent ac3-i1-h2726 on
     shortLabel 032901ipsc.k4me3
     longLabel MS032901 | human | induced pluripotent stem cell | H3K4me3 | signal
     visibility full
@@ -69,9 +113,20 @@ color 214,39,40
     autoScale on
     subGroups sampleType=inducedpluripotentstemcell assayType=H3K4me3 view=signal
     
+    track McGill_MS032901_ipsc_H3K4me3_peaks
+    type bigBed
+    parent ac3-i1-h2726 on
+    shortLabel 032901ipsc.k4me3
+    longLabel MS032901 | human | induced pluripotent stem cell | H3K4me3 | peaks
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0329/MS032901/H3K4me3/MS032901.ipsc.H3K4me3.peaks.bigBed
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=inducedpluripotentstemcell assayType=H3K4me3 view=peaks
+    
     track McGill_MS032901_ipsc_H3K9me3_signal
     type bigWig
-    parent ac3-i1-h2716 on
+    parent ac3-i1-h2726 on
     shortLabel 032901ipsc.k9me3
     longLabel MS032901 | human | induced pluripotent stem cell | H3K9me3 | signal
     visibility full
@@ -79,4 +134,15 @@ color 214,39,40
     maxHeightPixels 25:25:8
     autoScale on
     subGroups sampleType=inducedpluripotentstemcell assayType=H3K9me3 view=signal
+    
+    track McGill_MS032901_ipsc_H3K9me3_peaks
+    type bigBed
+    parent ac3-i1-h2726 on
+    shortLabel 032901ipsc.k9me3
+    longLabel MS032901 | human | induced pluripotent stem cell | H3K9me3 | peaks
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0329/MS032901/H3K9me3/MS032901.ipsc.H3K9me3.peaks.bigBed
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=inducedpluripotentstemcell assayType=H3K9me3 view=peaks
     

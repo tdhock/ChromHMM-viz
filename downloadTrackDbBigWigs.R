@@ -83,19 +83,19 @@ data.dir <- dirname(trackDb.txt)
 for(match.mat in match.list){
   rownames(match.mat) <- match.mat[, "variable"]
   value.vec <- match.mat[, "value"]
-  if(value.vec[["type"]] == "bigWig"){
-    match <-
-      str_match_all_perl(value.vec[["subGroups"]],
-                         subGroup.pattern)[[1]]
-    rownames(match) <- match[, "variable"]
-    cell.type <- match["sampleType", "value"]
-    u <- value.vec[["bigDataUrl"]]
-    bigwig.base <- sub("[.](bw|bigWig)$", ".bigwig", basename(u))
-    bigwig.dir <- file.path(data.dir, cell.type)
-    dir.create(bigwig.dir, showWarnings=FALSE)
-    bigwig.path <- file.path(bigwig.dir, bigwig.base)
-    if(!file.exists(bigwig.path)){
-      download.file(u, bigwig.path)
-    }
+  match <-
+    str_match_all_perl(value.vec[["subGroups"]],
+                       subGroup.pattern)[[1]]
+  rownames(match) <- match[, "variable"]
+  cell.type <- match["sampleType", "value"]
+  u <- value.vec[["bigDataUrl"]]
+  bigwig.base <- sub("[.](bw|bigWig)$", ".bigwig", basename(u))
+  bigwig.dir <- file.path(data.dir, cell.type)
+  dir.create(bigwig.dir, showWarnings=FALSE)
+  bigwig.path <- file.path(bigwig.dir, bigwig.base)
+  if(!file.exists(bigwig.path)){
+    download.file(u, bigwig.path)
+  }else{
+    cat(bigwig.path, "already exists.\n")
   }
 }

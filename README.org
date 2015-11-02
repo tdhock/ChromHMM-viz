@@ -3,8 +3,17 @@ Visualizing ChromHMM
 Collaboration with https://github.com/jcrada
 
 *** TODOs
-- add coverage data plot for one/several genomic regions.
-- add selector for number of states.
+
+- Add parameter plots to label/coverage plot.
+- Add iteration parameter? Is is possible to obtain predictions at
+  every genomic position for every iteration?
+
+*** 2 Nov 2015
+http://bl.ocks.org/tdhock/raw/f24d410dd38e82a8eb70/
+- added coverage data plot for one/several genomic regions.
+- added selector for number of states.
+- It is clear that the high false positive rate is due to 
+  using the bad default macs peaks as input to ChromHMM.
 
 *** 29 Oct 2015
 

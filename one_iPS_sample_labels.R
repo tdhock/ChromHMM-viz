@@ -18,6 +18,15 @@ label.df <- str_match_named(label.lines, pattern, list(
 label.df$chunk.id <- cumsum(is.na(label.df[,1]))+1
 not.na <- subset(label.df, !is.na(chrom))
 
+### Run fread but do not stop for an error on an empty file.
+fread.or.null <- function(...){
+  tryCatch({
+    fread(...)
+  }, error=function(e){
+    NULL
+  })
+}
+
 readBigWig <- function
 ### Read part of a bigWig file into R as a data.table (assumes
 ### bigWigToBedGraph is present on your PATH).
@@ -45,7 +54,7 @@ readBigWig <- function
     sprintf("bigWigToBedGraph -chrom=%s -start=%d -end=%d %s /dev/stdout",
             chrom, start, end,
             bigwig.file)
-  bg <- fread(cmd, drop=1)
+  bg <- fread.or.null(cmd, drop=1)
   if(is.null(bg)){
     data.table(chromStart=integer(),
                chromEnd=integer(),
@@ -66,18 +75,25 @@ readBigWig <- function
 }
 
 bigwig.file.vec <- Sys.glob("inducedpluripotentstemcell/*.bigwig")
-bigwig.pattern <- paste0(
+bigBed.file.vec <- Sys.glob("inducedpluripotentstemcell/*.bigBed")
+filename.pattern <- paste0(
   "(?<donor>.*?)",
   "[.]",
   "(?<cellType>.*?)",
   "[.]",
   "(?<experiment>.*?)",
-  "[.]signal[.]bigwig")
-bigwig.mat <- str_match_named(basename(bigwig.file.vec), bigwig.pattern)
+  "[.]",
+  "(?<dataType>.*?)",
+  "[.]",
+  "(?<fileType>.*)")
+bigwig.mat <- str_match_named(basename(bigwig.file.vec), filename.pattern)
+bigBed.mat <- str_match_named(basename(bigBed.file.vec), filename.pattern)
+stopifnot(bigwig.mat[, "experiment"] == bigBed.mat[, "experiment"])
 
 labels.by.chrom <- split(not.na, not.na$chrom)
 coverage.dt.list <- list()
 chunk.dt.list <- list()
+peaks.dt.list <- list()
 for(chrom in names(labels.by.chrom)){
   chunk.labels <- labels.by.chrom[[chrom]]
   regionStart <- min(chunk.labels$regionStart)
@@ -98,14 +114,26 @@ for(chrom in names(labels.by.chrom)){
     })$y
     coverage.dt.list[[paste(chrom, experiment)]] <- 
       data.table(chrom, experiment, position, coverage)
+    bigBed.file <- bigBed.file.vec[[bigwig.i]]
+    tmp.bed <- tempfile()
+    cmd <- sprintf("bigBedToBed -chrom=%s -start=%d -end=%d %s %s",
+                   chrom, chunkStart, chunkEnd,
+                   bigBed.file, tmp.bed)
+    system(cmd)
+    peaks <- fread.or.null(tmp.bed, drop=4:5)
+    if(is.data.table(peaks)){
+      setnames(peaks, c("chrom", "peakStart", "peakEnd"))
+      peaks.dt.list[[paste(chrom, experiment)]] <-
+        data.table(chrom, experiment, peaks)
+    }
   }
 }
 coverage.dt <- do.call(rbind, coverage.dt.list)
 chunk.dt <- do.call(rbind, chunk.dt.list)
+peaks.dt <- do.call(rbind, peaks.dt.list)
 setkey(chunk.dt, chrom, chunkStart, chunkEnd)
 
 expected.changes <- c(constant=0, oneChange=1)
-
 out.dir.vec <- Sys.glob("out-*")
 all.segs.list <- list()
 all.errors.list <- list()
@@ -122,7 +150,8 @@ for(out.dir in out.dir.vec){
   segs.by.chrom <- split(over.dt, over.dt$chrom)
   for(chrom in names(segs.by.chrom)){
     chrom.segs <- segs.by.chrom[[chrom]]
-    all.segs.list[[paste(out.dir, chrom)]] <- chrom.segs
+    all.segs.list[[paste(out.dir, chrom)]] <-
+      data.table(maxStates, chrom.segs)
     chrom.labels <- data.table(labels.by.chrom[[chrom]])
     change.vec <- chrom.segs$end[-1]
     chrom.labels$changes <- NA
@@ -143,12 +172,26 @@ for(out.dir in out.dir.vec){
 all.errors <- do.call(rbind, all.errors.list)
 all.segs <- do.call(rbind, all.segs.list)
 
-fp.fn <- all.errors[, list(fp=sum(fp), fn=sum(fn)), by=maxStates]
-fp.fn[, errors := fp + fn]
-fp.fn[order(maxStates), ]
+bigWigInfo <- function
+### Run bigWigInfo to find chrom sizes.
+(bigwig.file
+### path or URL of bigwig file.
+ ){
+  stopifnot(is.character(bigwig.file))
+  stopifnot(length(bigwig.file) == 1)
+  cmd <- paste("bigWigInfo", bigwig.file, "-chroms | grep '^\\s'")
+  chroms <- fread(cmd, header=FALSE, sep=" ")
+  setnames(chroms, c("chrom", "chromStart", "chromEnd"))
+  chroms$chrom <- sub("\\s*", "", chroms$chrom)
+  chroms
+}
 
+chroms <- bigWigInfo(bigwig.file)
 
 one_iPS_sample_labels <- list(
+  chroms=chroms,
+  chunks=chunk.dt,
+  peaks=peaks.dt,
   coverage=coverage.dt,
   labels=data.table(not.na),
   segments=all.segs,

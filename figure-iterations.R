@@ -1,6 +1,6 @@
 works_with_R("3.2.2",
              "tdhock/ggplot2@a8b06ddb680acdcdbd927773b1011c562134e4d2",
-             "tdhock/animint@5f06aee037663c248297592fac6215388230d415",
+             "tdhock/animint@4257e8cf76eb5021a98010b6629b779a4f383b24",
              data.table="1.9.6")
 
 load("iterations.RData")
