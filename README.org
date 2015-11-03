@@ -4,9 +4,18 @@ Collaboration with https://github.com/jcrada
 
 *** TODOs
 
-- Add parameter plots to label/coverage plot.
+- Add parameter heatmaps to label/coverage plot?
+- Add different random initializations. How much does the model
+  likelihood, accuracy and state assignment change between different
+  random seeds?
 - Add iteration parameter? Is is possible to obtain predictions at
   every genomic position for every iteration?
+
+*** 3 Nov 2015
+
+http://bl.ocks.org/tdhock/raw/2120199e9576d3628537/
+- plot convergence metrics of last iteration. Likelihood is not
+  increasing with the number of states!
 
 *** 2 Nov 2015
 http://bl.ocks.org/tdhock/raw/f24d410dd38e82a8eb70/
