@@ -5,14 +5,22 @@ Collaboration with https://github.com/jcrada
 *** TODOs
 
 - Add parameter heatmaps to label/coverage plot?
-- Add different random initializations. How much does the model
-  likelihood, accuracy and state assignment change between different
-  random seeds?
 - Add iteration parameter? Is is possible to obtain predictions at
   every genomic position for every iteration?
-- geom_tallrect(aes(tooltip=metric.value)) in select number of states plot.
+- =geom_tallrect(aes(tooltip=metric.value))= in select number of
+  states plot.
+- does random initialization affect state assignment and label error?
+- Re-number states based on which marks have high emission
+  frequencies, so then we can more easily compare models across random
+  initializations and iterations.
 
 *** 3 Nov 2015
+
+http://bl.ocks.org/tdhock/raw/c0a20d4990695f89bb87/
+- Plotted 100 iterations for 10 different random initializations of
+  the 15 state model. About half the random initializations, the
+  algorithm gets stuck in a local minimum which is significantly less
+  likely than the other half of the initializations.
 
 http://bl.ocks.org/tdhock/raw/2120199e9576d3628537/
 - plot convergence metrics of last iteration. Likelihood is not
