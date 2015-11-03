@@ -19,6 +19,24 @@ for(error.type in c("fp", "fn", "errors")){
 }
 error.curves <- do.call(rbind, error.curves.list)
 
+iterations <- one_iPS_sample_labels$iterations
+iterations[, minutes := TotalTimeSec/60]
+abbrev.vec <- c(
+  Iteration="iterations",
+  EstimatedLogLikelihood="log.lik",
+  minutes="minutes")
+metrics.list <- list()
+for(full in names(abbrev.vec)){
+  metric.name <- abbrev.vec[[full]]
+  metric.value <- iterations[[full]]
+  maxStates <- iterations$maxStates
+  metrics.list[[metric.name]] <-
+    data.table(metric.name, maxStates, metric.value)
+}
+metrics <- do.call(rbind, metrics.list)
+
+max.log.lik <- metrics.list$log.lik[metric.value==max(metric.value), ]
+
 fp.fn.colors <- c(FP="skyblue",
                   fp="skyblue",
                   fn="#E41A1C",
@@ -28,11 +46,22 @@ fp.fn.colors <- c(FP="skyblue",
                   errors="black")
 fp.fn.sizes <- c(errors=2, fp=1, fn=1)
 ggplot()+
+  geom_hline(aes(yintercept=metric.value),
+             data=max.log.lik,
+             color="grey50")+
+  geom_point(aes(maxStates, metric.value),
+             data=max.log.lik,
+             color="grey50")+
+  theme_bw()+
+  theme(panel.margin=grid::unit(0, "cm"))+
+  facet_grid(metric.name ~ ., scales="free")+
+  geom_line(aes(maxStates, metric.value),
+            data=metrics)+
   geom_line(aes(maxStates, incorrect.regions,
                 group=error.type,
                 size=error.type,
                 color=error.type),
-            data=error.curves)+
+            data=data.table(error.curves, metric.name="incorrect.regions"))+
   scale_color_manual(values=fp.fn.colors)+
   scale_size_manual(values=fp.fn.sizes)
 
@@ -213,11 +242,25 @@ viz <- list(
   curves=ggplot()+
     ggtitle("Select number of states")+
     make_tallrect(error.curves, "maxStates")+
+    geom_hline(aes(yintercept=metric.value),
+               data=max.log.lik,
+               alpha=0.5,
+               color="black")+
+    geom_point(aes(maxStates, metric.value),
+               data=max.log.lik,
+               size=4,
+               alpha=0.5,
+               color="black")+
+    theme_bw()+
+    theme(panel.margin=grid::unit(0, "cm"))+
+    facet_grid(metric.name ~ ., scales="free")+
+    geom_line(aes(maxStates, metric.value),
+              data=metrics)+
     geom_line(aes(maxStates, incorrect.regions,
                   group=error.type,
                   size=error.type,
                   color=error.type),
-              data=error.curves)+
+              data=data.table(error.curves, metric.name="incorrect.regions"))+
     scale_color_manual(values=fp.fn.colors)+
     scale_size_manual(values=fp.fn.sizes)
   )  

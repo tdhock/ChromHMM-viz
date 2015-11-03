@@ -137,8 +137,14 @@ expected.changes <- c(constant=0, oneChange=1)
 out.dir.vec <- Sys.glob("out-*")
 all.segs.list <- list()
 all.errors.list <- list()
+all.iterations.list <- list()
 for(out.dir in out.dir.vec){
+  iterations.txt <- file.path(out.dir, "iterations.txt")
+  iterations <- read.table(iterations.txt, header=TRUE)
+  last.iteration <- tail(iterations, 1)
   maxStates <- as.integer(sub(".*-", "", out.dir))
+  all.iterations.list[[out.dir]] <-
+    data.table(maxStates, last.iteration)
   segments.bed <- Sys.glob(paste0(out.dir, "/*_segments.bed"))
   stopifnot(length(segments.bed) == 1)
   seg.dt <- fread(segments.bed)
@@ -171,6 +177,7 @@ for(out.dir in out.dir.vec){
 }
 all.errors <- do.call(rbind, all.errors.list)
 all.segs <- do.call(rbind, all.segs.list)
+all.iterations <- do.call(rbind, all.iterations.list)
 
 bigWigInfo <- function
 ### Run bigWigInfo to find chrom sizes.
@@ -195,6 +202,7 @@ one_iPS_sample_labels <- list(
   coverage=coverage.dt,
   labels=data.table(not.na),
   segments=all.segs,
+  iterations=all.iterations,
   errors=all.errors)
 
 save(one_iPS_sample_labels, file="one_iPS_sample_labels.RData")
