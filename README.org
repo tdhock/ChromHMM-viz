@@ -10,6 +10,7 @@ Collaboration with https://github.com/jcrada
   random seeds?
 - Add iteration parameter? Is is possible to obtain predictions at
   every genomic position for every iteration?
+- geom_tallrect(aes(tooltip=metric.value)) in select number of states plot.
 
 *** 3 Nov 2015
 

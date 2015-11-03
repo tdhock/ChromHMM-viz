@@ -2,7 +2,10 @@ works_with_R("3.2.2",
              "tdhock/ggplot2@a8b06ddb680acdcdbd927773b1011c562134e4d2",
              data.table="1.9.6")
 
-emissions.txt.vec <- Sys.glob("toby/emissions.mat/*")
+data.dir <- file.path("ChromHMM", "100iterations10states")
+
+emissions.txt.vec <- Sys.glob(file.path(data.dir, "emissions.mat", "*"))
+stopifnot(100 == length(emissions.txt.vec))
 emission.list <- list()
 for(emissions.txt in emissions.txt.vec){
   iteration.str <- sub(".*_i", "", emissions.txt)
@@ -26,7 +29,8 @@ ggplot()+
   geom_tile(aes(state, experiment, fill=frequency),
             data=emission)
 
-transition.txt.vec <- Sys.glob("toby/transitions.mat/*")
+transition.txt.vec <- Sys.glob(file.path(data.dir, "transitions.mat", "*"))
+stopifnot(100 == length(transition.txt.vec))
 transition.list <- list()
 for(transition.txt in transition.txt.vec){
   iteration.str <- sub(".*_i", "", transition.txt)
@@ -52,7 +56,7 @@ ggplot()+
             data=transition)
 
 metric.mat <- read.table(
-  "toby/iterations/iterations.txt",
+  file.path(data.dir, "iterations", "iterations.txt"),
   header=TRUE, na.strings="-")
 names(metric.mat)[2] <- "log.lik"
 names(metric.mat)[4] <- "seconds"

@@ -11,7 +11,7 @@ pattern <- paste0(
   " ",
   "(?<label>[^ ]+)")
 
-label.lines <- readLines("one_iPS_sample_labels.txt")
+label.lines <- readLines(file.path("labels", "one_iPS_sample_labels.txt"))
 toint <- function(x)as.integer(gsub(",", "", x))
 label.df <- str_match_named(label.lines, pattern, list(
   regionStart=toint, regionEnd=toint))
@@ -74,8 +74,9 @@ readBigWig <- function
 ### data.table with columns chrom chromStart chromEnd count.
 }
 
-bigwig.file.vec <- Sys.glob("inducedpluripotentstemcell/*.bigwig")
-bigBed.file.vec <- Sys.glob("inducedpluripotentstemcell/*.bigBed")
+data.dir <- file.path("labels", "inducedpluripotentstemcell")
+bigwig.file.vec <- Sys.glob(file.path(data.dir, "*.bigwig"))
+bigBed.file.vec <- Sys.glob(file.path(data.dir, "*.bigBed"))
 filename.pattern <- paste0(
   "(?<donor>.*?)",
   "[.]",
@@ -134,7 +135,7 @@ peaks.dt <- do.call(rbind, peaks.dt.list)
 setkey(chunk.dt, chrom, chunkStart, chunkEnd)
 
 expected.changes <- c(constant=0, oneChange=1)
-out.dir.vec <- Sys.glob("out-*")
+out.dir.vec <- Sys.glob("ChromHMM/ipsStates2-32/out-*")
 all.segs.list <- list()
 all.errors.list <- list()
 all.iterations.list <- list()
