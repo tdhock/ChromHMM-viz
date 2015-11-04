@@ -65,8 +65,11 @@ repeats <- list(
   transition=do.call(rbind, transition.list),
   emission=do.call(rbind, emission.list))
 
-ChromHMMinit <- repeats
-save(ChromHMMinit, file="~/R/aninint-examples/data/ChromHMMinit.RData",
-     compress="xz")
+## ChromHMMinit <- list()
+## for(data.name in names(repeats)){
+##   ChromHMMinit[[data.name]] <- data.frame(repeats[[data.name]])
+## }
+## save(ChromHMMinit, file="~/R/animint-examples/data/ChromHMMinit.RData",
+##      compress="xz")
 
 save(repeats, file="repeats.RData")

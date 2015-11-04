@@ -7,7 +7,7 @@ load("one_iPS_sample_labels.RData")
 
 fp.fn <- one_iPS_sample_labels$errors[, {
   list(fp=sum(fp), fn=sum(fn))
-}, by=maxStates]
+}, by=.(algorithm, maxStates)]
 fp.fn[, errors := fp + fn]
 fp.fn[order(maxStates), ]
 error.curves.list <- list()
@@ -15,7 +15,10 @@ for(error.type in c("fp", "fn", "errors")){
   incorrect.regions <- fp.fn[[error.type]]
   maxStates <- fp.fn$maxStates
   error.curves.list[[error.type]] <-
-    data.table(error.type, maxStates, incorrect.regions)
+    data.table(metric.name="incorrect.regions",
+               error.type,
+               fp.fn[, .(algorithm, maxStates)],
+               incorrect.regions)
 }
 error.curves <- do.call(rbind, error.curves.list)
 
@@ -29,9 +32,8 @@ metrics.list <- list()
 for(full in names(abbrev.vec)){
   metric.name <- abbrev.vec[[full]]
   metric.value <- iterations[[full]]
-  maxStates <- iterations$maxStates
   metrics.list[[metric.name]] <-
-    data.table(metric.name, maxStates, metric.value)
+    data.table(metric.name, iterations[, .(algorithm, maxStates)], metric.value)
 }
 metrics <- do.call(rbind, metrics.list)
 
@@ -54,7 +56,7 @@ ggplot()+
              color="grey50")+
   theme_bw()+
   theme(panel.margin=grid::unit(0, "cm"))+
-  facet_grid(metric.name ~ ., scales="free")+
+  facet_grid(metric.name ~ algorithm, scales="free")+
   geom_line(aes(maxStates, metric.value),
             data=metrics)+
   geom_line(aes(maxStates, incorrect.regions,
@@ -70,7 +72,7 @@ chroms <- one_iPS_sample_labels$chroms[chrom %in% chunks$chrom, ]
 
 error.by.chrom <- one_iPS_sample_labels$errors[, {
   list(fp=sum(fp), fn=sum(fn))
-}, by=.(maxStates, chrom)]
+}, by=.(algorithm, maxStates, chrom)]
 setkey(chunks, chrom)
 setkey(error.by.chrom, chrom)
 error.text <- error.by.chrom[chunks]
@@ -78,7 +80,7 @@ error.text <- error.by.chrom[chunks]
 ggplot()+
   theme_bw()+
   theme(panel.margin=grid::unit(0, "cm"))+
-  facet_wrap("maxStates")+  
+  facet_grid(maxStates ~ algorithm)+  
   scale_x_continuous("position on chromosome (mega bases)")+
   geom_segment(aes(chromStart/1e6, chrom,
                    xend=chromEnd/1e6, yend=chrom),
@@ -144,12 +146,15 @@ normalize <- function(pos.vec, chunkStart, chunkEnd){
   (pos.vec - chunkStart)/(chunkEnd-chunkStart)
 }
 
+only.error <- error.curves[error.type=="errors", ]
+not.error <- error.curves[error.type!="errors", ]
+
 viz <- list(
-  title="Quantifying ChromHMM accuracy using labels",
+  title="Comparing ChromHMM and Spectacle",
   coverage=ggplot()+
     ggtitle("Coverage, labels, peaks, selected model")+
     scale_fill_manual(values=ann.colors)+
-    scale_x_continuous("relative position on chromosome")+
+    scale_x_continuous("relative position on chromosome", breaks=c())+
     scale_y_continuous(breaks=function(lim.vec){
       floor(lim.vec[2])
     })+
@@ -183,6 +188,7 @@ viz <- list(
     geom_tallrect(aes(xmin=normalize(start, chunkStart, chunkEnd),
                       xmax=normalize(end, chunkStart, chunkEnd),
                       showSelected=chrom,
+                      showSelected3=algorithm,
                       showSelected2=maxStates),
                   color="green",
                   fill="transparent",
@@ -192,12 +198,15 @@ viz <- list(
                   0,
                   label=sub("^E", "", state),
                   showSelected=chrom,
+                  showSelected3=algorithm,
                   showSelected2=maxStates),
               data=data.table(one_iPS_sample_labels$segments,
                               experiment="H3K27ac"))+
     geom_tallrect(aes(xmin=normalize(regionStart, chunkStart, chunkEnd),
                       xmax=normalize(regionEnd, chunkStart, chunkEnd),
                       showSelected=maxStates,
+                      showSelected4=label,
+                      showSelected3=algorithm,
                       showSelected2=chrom,
                       linetype=status),
                   color="black",
@@ -227,6 +236,8 @@ viz <- list(
     geom_text(aes(regionStart/1e6, chrom,
                   clickSelects=chrom,
                   showSelected=maxStates,
+                  showSelected3=error.type,
+                  showSelected2=algorithm,
                   label=paste(fp, "fp"),
                   color=error.type),
               data=data.table(error.text[0 < fp, ], error.type="fp"),
@@ -234,35 +245,63 @@ viz <- list(
     geom_text(aes(regionStart/1e6, chrom,
                   clickSelects=chrom,
                   showSelected=maxStates,
+                  showSelected3=error.type,
+                  showSelected2=algorithm,
                   label=paste(fn, "fn"),
                   color=error.type),
               data=data.table(error.text[0 < fn, ], error.type="fn"),
               hjust=0)+
+    geom_text(aes(125, "selection",
+                  showSelected=algorithm,
+                  showSelected2=maxStates,
+                  label=paste(
+                  errors, "incorrect labels for", maxStates,
+                    "state", algorithm)),
+              data=fp.fn)+
    guides(color="none"),
   curves=ggplot()+
-    ggtitle("Select number of states")+
+    ggtitle("Select algo and max states")+
     make_tallrect(error.curves, "maxStates")+
     geom_hline(aes(yintercept=metric.value),
                data=max.log.lik,
                alpha=0.5,
                color="black")+
-    geom_point(aes(maxStates, metric.value),
+    geom_point(aes(maxStates, metric.value,
+                   showSelected=algorithm),
                data=max.log.lik,
                size=4,
                alpha=0.5,
                color="black")+
     theme_bw()+
+    geom_line(aes(maxStates, metric.value,
+                  clickSelects=algorithm,
+                  group=algorithm),
+              size=3,
+              data=metrics)+
+    geom_point(aes(maxStates, metric.value,
+                  clickSelects=algorithm),
+              size=3,
+              data=metrics)+
     theme(panel.margin=grid::unit(0, "cm"))+
     facet_grid(metric.name ~ ., scales="free")+
-    geom_line(aes(maxStates, metric.value),
-              data=metrics)+
     geom_line(aes(maxStates, incorrect.regions,
                   group=error.type,
-                  size=error.type,
+                  showSelected=algorithm,
                   color=error.type),
-              data=data.table(error.curves, metric.name="incorrect.regions"))+
-    scale_color_manual(values=fp.fn.colors)+
-    scale_size_manual(values=fp.fn.sizes)
-  )  
+              size=4,
+              data=not.error)+
+    geom_line(aes(maxStates, incorrect.regions,
+                  group=algorithm,
+                  clickSelects=algorithm,
+                  color=error.type),
+              size=3,
+              data=only.error)+
+    geom_point(aes(maxStates, incorrect.regions,
+                  clickSelects=algorithm),
+              size=3,
+              data=only.error)+
+    scale_color_manual(values=fp.fn.colors),
+  selector.types=list(error.type="multiple")
+  )
 
 animint2dir(viz, "figure_one_iPS_sample_labels")

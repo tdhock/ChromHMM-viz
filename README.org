@@ -2,6 +2,8 @@ Visualizing ChromHMM
 
 Collaboration with https://github.com/jcrada
 
+Data shared in //abaproject/mugqic/chrom-states
+
 *** TODOs
 
 - Add parameter heatmaps to label/coverage plot?
@@ -13,6 +15,17 @@ Collaboration with https://github.com/jcrada
 - Re-number states based on which marks have high emission
   frequencies, so then we can more easily compare models across random
   initializations and iterations.
+
+*** 4 Nov 2015
+
+http://bl.ocks.org/tdhock/raw/abe378a366dbd63acadf/
+- Shows spectacle label error and likelihood alongside ChromHMM.
+- It is clear from the mostly monotonic increasing log.lik plot that
+  the Spectacle algorithm is able to find a more likely model than
+  ChromHMM, in a similar amount of time.
+- ChromHMM model with 2 states is still the best in terms of label
+  error. It is clear that the problem with both methods is the bad
+  input data (peaks with many false positives).
 
 *** 3 Nov 2015
 

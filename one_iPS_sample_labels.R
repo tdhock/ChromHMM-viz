@@ -134,8 +134,13 @@ chunk.dt <- do.call(rbind, chunk.dt.list)
 peaks.dt <- do.call(rbind, peaks.dt.list)
 setkey(chunk.dt, chrom, chunkStart, chunkEnd)
 
+iterations.txt.vec <-
+  Sys.glob("Spectacle/Spectacle-States/state-*/iterations.txt")
+
 expected.changes <- c(constant=0, oneChange=1)
-out.dir.vec <- Sys.glob("ChromHMM/ipsStates2-32/out-*")
+out.dir.vec <-
+  c(dirname(iterations.txt.vec),
+    Sys.glob("ChromHMM/ipsStates2-32/out-*"))
 all.segs.list <- list()
 all.errors.list <- list()
 all.iterations.list <- list()
@@ -143,9 +148,10 @@ for(out.dir in out.dir.vec){
   iterations.txt <- file.path(out.dir, "iterations.txt")
   iterations <- read.table(iterations.txt, header=TRUE)
   last.iteration <- tail(iterations, 1)
+  algorithm <- sub("/.*", "", out.dir)
   maxStates <- as.integer(sub(".*-", "", out.dir))
   all.iterations.list[[out.dir]] <-
-    data.table(maxStates, last.iteration)
+    data.table(algorithm, maxStates, last.iteration)
   segments.bed <- Sys.glob(paste0(out.dir, "/*_segments.bed"))
   stopifnot(length(segments.bed) == 1)
   seg.dt <- fread(segments.bed)
@@ -158,7 +164,7 @@ for(out.dir in out.dir.vec){
   for(chrom in names(segs.by.chrom)){
     chrom.segs <- segs.by.chrom[[chrom]]
     all.segs.list[[paste(out.dir, chrom)]] <-
-      data.table(maxStates, chrom.segs)
+      data.table(algorithm, maxStates, chrom.segs)
     chrom.labels <- data.table(labels.by.chrom[[chrom]])
     change.vec <- chrom.segs$end[-1]
     chrom.labels$changes <- NA
@@ -173,7 +179,7 @@ for(out.dir in out.dir.vec){
     chrom.labels[, status := ifelse(fp, "false positive",
                             ifelse(fn, "false negative", "correct"))]
     all.errors.list[[paste(out.dir, chrom)]] <-
-      data.table(maxStates, chrom.labels)
+      data.table(algorithm, maxStates, chrom.labels)
   }
 }
 all.errors <- do.call(rbind, all.errors.list)
