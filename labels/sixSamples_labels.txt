@@ -1,0 +1,16 @@
+chr1:75,174,057-75,186,875 peaks:H3K36me3:all
+chr1:75,199,225-75,202,726 peakEnd:H3K27ac:all peakStart:H3K36me3:all peakEnd:H3K4me1:all peakEnd:H3K4me3:all
+chr1:75,221,898-75,247,577 peakEnd:H3K36me3:all peakStart:H3K27me3:all
+
+chr1:71,535,984-71,540,018 peaks:H3K36me3:all
+chr1:71,546,542-71,549,504 peakEnd:H3K27ac:all peakStart:H3K27me3:all peakEnd:H3K4me1:all peakEnd:H3K4me3:all peakStart:H3K9me3:all
+
+chr1:69,290,659-69,370,564 noPeaks:all:all
+chr1:69,378,736-69,382,947 peakStart:H3K27ac:skeletalMuscle peakStart:H3K4me1:skeletalMuscle
+chr1:69,382,950-69,390,184 peakEnd:H3K27ac:skeletalMuscle peakEnd:H3K4me1:skeletalMuscle
+chr1:69,402,196-69,544,148 noPeaks:all:all
+
+chr1:62,891,090-62,898,449 noPeaks:all:all
+chr1:62,899,845-62,901,815 peakStart:H3K27ac:all peakStart:H3K4me1:all peakStart:H3K4me3:all
+
+# each line has either no chromatin state changes, or exactly 1 change.

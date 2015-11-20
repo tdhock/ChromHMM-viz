@@ -1,0 +1,448 @@
+track ac3-i1-h2838
+compositeTrack on
+shortLabel Histone - CEEHRC
+longLabel Histone Modifications - CEEHRC
+subGroup1 sampleType Sample_Type monocyte=monocyte skeletalmuscletissue=skeletal_muscle_tissue CD4positivehelperTcell=CD4-positive_helper_T_cell
+subGroup2 assayType Assay_Type H3K9me3=H3K9me3 H3K27me3=H3K27me3 H3K36me3=H3K36me3 H3K4me3=H3K4me3 H3K4me1=H3K4me1 H3K27ac=H3K27ac
+subGroup3 view View peaks=Peaks signal=Signal signal_forward=Signal_Forward signal_reverse=Signal_Reverse profile=Profile
+dimensions dimensionX=assayType dimensionY=sampleType dimA=view
+sortOrder assayType=+ sampleType=+
+dividers assayType
+dragAndDrop subTracks  
+priority 1
+type bed 5
+visibility pack
+color 214,39,40
+
+    track McGill_MS001201_skeletalMuscle_H3K27ac_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 001201skeM.k27ac
+    longLabel MS001201 | human | skeletal muscle tissue | H3K27ac | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0012/MS001201/H3K27ac/MS001201.skeletalMuscle.H3K27ac.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=skeletalmuscletissue assayType=H3K27ac view=signal
+    metadata EXPERIMENT_TYPE=H3K27ac ANALYSIS_GROUP=McGill DISEASE=Leigh_Disease TRACK_TYPE=signal ASSAY_TYPE=H3K27ac DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C84814&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/UBERON_0001134 DONOR_ID=McGill0012 DONOR_HEALTH_STATUS=Unknown_Mitochondrial_Disease DONOR_AGE=Adult MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_tissue TISSUE_TYPE=skeletal_muscle_tissue TISSUE_DEPOT=skeletal_muscle_tissue
+
+    track McGill_MS001301_skeletalMuscle_H3K27ac_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 001301skeM.k27ac
+    longLabel MS001301 | human | skeletal muscle tissue | H3K27ac | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0013/MS001301/H3K27ac/MS001301.skeletalMuscle.H3K27ac.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=skeletalmuscletissue assayType=H3K27ac view=signal
+    metadata EXPERIMENT_TYPE=H3K27ac ANALYSIS_GROUP=McGill DISEASE=Leigh_Disease TRACK_TYPE=signal ASSAY_TYPE=H3K27ac DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C84814&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/UBERON_0001134 DONOR_ID=McGill0013 DONOR_HEALTH_STATUS=Unknown_Mitochondrial_Disease DONOR_AGE=11 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_tissue TISSUE_TYPE=skeletal_muscle_tissue TISSUE_DEPOT=skeletal_muscle_tissue
+
+    track McGill_MS000201_monocyte_H3K27ac_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 000201mono.k27ac
+    longLabel MS000201 | human | monocyte | H3K27ac | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0002/MS000201/H3K27ac/MS000201.monocyte.H3K27ac.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=monocyte assayType=H3K27ac view=signal
+    metadata EXPERIMENT_TYPE=H3K27ac ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=Monocyte TRACK_TYPE=signal ASSAY_TYPE=H3K27ac DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000576 DONOR_ID=McGill0002 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS000501_cd4phtc_H3K27ac_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 000501htc.k27ac
+    longLabel MS000501 | human | CD4-positive helper T cell | H3K27ac | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0005/MS000501/H3K27ac/MS000501.cd4phtc.H3K27ac.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=CD4positivehelperTcell assayType=H3K27ac view=signal
+    metadata EXPERIMENT_TYPE=H3K27ac ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=CD4-positive_helper_T_cell TRACK_TYPE=signal ASSAY_TYPE=H3K27ac DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000492 DONOR_ID=McGill0005 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS007204_cd4phtc_H3K27ac_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 007204htc.k27ac
+    longLabel MS007204 | human | CD4-positive helper T cell | H3K27ac | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0072/MS007204/H3K27ac/MS007204.cd4phtc.H3K27ac.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=CD4positivehelperTcell assayType=H3K27ac view=signal
+    metadata EXPERIMENT_TYPE=H3K27ac ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=CD4-positive_helper_T_cell TRACK_TYPE=signal ASSAY_TYPE=H3K27ac DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000492 DONOR_ID=McGill0072 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS007901_monocyte_H3K27ac_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 007901mono.k27ac
+    longLabel MS007901 | human | monocyte | H3K27ac | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0079/MS007901/H3K27ac/MS007901.monocyte.H3K27ac.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=monocyte assayType=H3K27ac view=signal
+    metadata EXPERIMENT_TYPE=H3K27ac ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=Monocyte TRACK_TYPE=signal ASSAY_TYPE=H3K27ac DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000576 DONOR_ID=McGill0079 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Male
+
+    track McGill_MS001201_skeletalMuscle_H3K27me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 001201skeM.k27me3
+    longLabel MS001201 | human | skeletal muscle tissue | H3K27me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0012/MS001201/H3K27me3/MS001201.skeletalMuscle.H3K27me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=skeletalmuscletissue assayType=H3K27me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K27me3 ANALYSIS_GROUP=McGill DISEASE=Leigh_Disease TRACK_TYPE=signal ASSAY_TYPE=H3K27me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C84814&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/UBERON_0001134 DONOR_ID=McGill0012 DONOR_HEALTH_STATUS=Unknown_Mitochondrial_Disease DONOR_AGE=Adult MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_tissue TISSUE_TYPE=skeletal_muscle_tissue TISSUE_DEPOT=skeletal_muscle_tissue
+
+    track McGill_MS001301_skeletalMuscle_H3K27me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 001301skeM.k27me3
+    longLabel MS001301 | human | skeletal muscle tissue | H3K27me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0013/MS001301/H3K27me3/MS001301.skeletalMuscle.H3K27me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=skeletalmuscletissue assayType=H3K27me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K27me3 ANALYSIS_GROUP=McGill DISEASE=Leigh_Disease TRACK_TYPE=signal ASSAY_TYPE=H3K27me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C84814&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/UBERON_0001134 DONOR_ID=McGill0013 DONOR_HEALTH_STATUS=Unknown_Mitochondrial_Disease DONOR_AGE=11 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_tissue TISSUE_TYPE=skeletal_muscle_tissue TISSUE_DEPOT=skeletal_muscle_tissue
+
+    track McGill_MS000201_monocyte_H3K27me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 000201mono.k27me3
+    longLabel MS000201 | human | monocyte | H3K27me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0002/MS000201/H3K27me3/MS000201.monocyte.H3K27me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=monocyte assayType=H3K27me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K27me3 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=Monocyte TRACK_TYPE=signal ASSAY_TYPE=H3K27me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000576 DONOR_ID=McGill0002 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS000501_cd4phtc_H3K27me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 000501htc.k27me3
+    longLabel MS000501 | human | CD4-positive helper T cell | H3K27me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0005/MS000501/H3K27me3/MS000501.cd4phtc.H3K27me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=CD4positivehelperTcell assayType=H3K27me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K27me3 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=CD4-positive_helper_T_cell TRACK_TYPE=signal ASSAY_TYPE=H3K27me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000492 DONOR_ID=McGill0005 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS007204_cd4phtc_H3K27me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 007204htc.k27me3
+    longLabel MS007204 | human | CD4-positive helper T cell | H3K27me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0072/MS007204/H3K27me3/MS007204.cd4phtc.H3K27me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=CD4positivehelperTcell assayType=H3K27me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K27me3 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=CD4-positive_helper_T_cell TRACK_TYPE=signal ASSAY_TYPE=H3K27me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000492 DONOR_ID=McGill0072 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS007901_monocyte_H3K27me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 007901mono.k27me3
+    longLabel MS007901 | human | monocyte | H3K27me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0079/MS007901/H3K27me3/MS007901.monocyte.H3K27me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=monocyte assayType=H3K27me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K27me3 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=Monocyte TRACK_TYPE=signal ASSAY_TYPE=H3K27me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000576 DONOR_ID=McGill0079 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Male
+
+    track McGill_MS001201_skeletalMuscle_H3K36me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 001201skeM.k36me3
+    longLabel MS001201 | human | skeletal muscle tissue | H3K36me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0012/MS001201/H3K36me3/MS001201.skeletalMuscle.H3K36me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=skeletalmuscletissue assayType=H3K36me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K36me3 ANALYSIS_GROUP=McGill DISEASE=Leigh_Disease TRACK_TYPE=signal ASSAY_TYPE=H3K36me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C84814&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/UBERON_0001134 DONOR_ID=McGill0012 DONOR_HEALTH_STATUS=Unknown_Mitochondrial_Disease DONOR_AGE=Adult MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_tissue TISSUE_TYPE=skeletal_muscle_tissue TISSUE_DEPOT=skeletal_muscle_tissue
+
+    track McGill_MS001301_skeletalMuscle_H3K36me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 001301skeM.k36me3
+    longLabel MS001301 | human | skeletal muscle tissue | H3K36me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0013/MS001301/H3K36me3/MS001301.skeletalMuscle.H3K36me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=skeletalmuscletissue assayType=H3K36me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K36me3 ANALYSIS_GROUP=McGill DISEASE=Leigh_Disease TRACK_TYPE=signal ASSAY_TYPE=H3K36me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C84814&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/UBERON_0001134 DONOR_ID=McGill0013 DONOR_HEALTH_STATUS=Unknown_Mitochondrial_Disease DONOR_AGE=11 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_tissue TISSUE_TYPE=skeletal_muscle_tissue TISSUE_DEPOT=skeletal_muscle_tissue
+
+    track McGill_MS000201_monocyte_H3K36me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 000201mono.k36me3
+    longLabel MS000201 | human | monocyte | H3K36me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0002/MS000201/H3K36me3/MS000201.monocyte.H3K36me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=monocyte assayType=H3K36me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K36me3 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=Monocyte TRACK_TYPE=signal ASSAY_TYPE=H3K36me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000576 DONOR_ID=McGill0002 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS000501_cd4phtc_H3K36me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 000501htc.k36me3
+    longLabel MS000501 | human | CD4-positive helper T cell | H3K36me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0005/MS000501/H3K36me3/MS000501.cd4phtc.H3K36me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=CD4positivehelperTcell assayType=H3K36me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K36me3 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=CD4-positive_helper_T_cell TRACK_TYPE=signal ASSAY_TYPE=H3K36me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000492 DONOR_ID=McGill0005 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS007204_cd4phtc_H3K36me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 007204htc.k36me3
+    longLabel MS007204 | human | CD4-positive helper T cell | H3K36me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0072/MS007204/H3K36me3/MS007204.cd4phtc.H3K36me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=CD4positivehelperTcell assayType=H3K36me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K36me3 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=CD4-positive_helper_T_cell TRACK_TYPE=signal ASSAY_TYPE=H3K36me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000492 DONOR_ID=McGill0072 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS007901_monocyte_H3K36me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 007901mono.k36me3
+    longLabel MS007901 | human | monocyte | H3K36me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0079/MS007901/H3K36me3/MS007901.monocyte.H3K36me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=monocyte assayType=H3K36me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K36me3 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=Monocyte TRACK_TYPE=signal ASSAY_TYPE=H3K36me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000576 DONOR_ID=McGill0079 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Male
+
+    track McGill_MS001201_skeletalMuscle_H3K4me1_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 001201skeM.k4me1
+    longLabel MS001201 | human | skeletal muscle tissue | H3K4me1 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0012/MS001201/H3K4me1/MS001201.skeletalMuscle.H3K4me1.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=skeletalmuscletissue assayType=H3K4me1 view=signal
+    metadata EXPERIMENT_TYPE=H3K4me1 ANALYSIS_GROUP=McGill DISEASE=Leigh_Disease TRACK_TYPE=signal ASSAY_TYPE=H3K4me1 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C84814&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/UBERON_0001134 DONOR_ID=McGill0012 DONOR_HEALTH_STATUS=Unknown_Mitochondrial_Disease DONOR_AGE=Adult MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_tissue TISSUE_TYPE=skeletal_muscle_tissue TISSUE_DEPOT=skeletal_muscle_tissue
+
+    track McGill_MS001301_skeletalMuscle_H3K4me1_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 001301skeM.k4me1
+    longLabel MS001301 | human | skeletal muscle tissue | H3K4me1 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0013/MS001301/H3K4me1/MS001301.skeletalMuscle.H3K4me1.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=skeletalmuscletissue assayType=H3K4me1 view=signal
+    metadata EXPERIMENT_TYPE=H3K4me1 ANALYSIS_GROUP=McGill DISEASE=Leigh_Disease TRACK_TYPE=signal ASSAY_TYPE=H3K4me1 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C84814&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/UBERON_0001134 DONOR_ID=McGill0013 DONOR_HEALTH_STATUS=Unknown_Mitochondrial_Disease DONOR_AGE=11 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_tissue TISSUE_TYPE=skeletal_muscle_tissue TISSUE_DEPOT=skeletal_muscle_tissue
+
+    track McGill_MS000201_monocyte_H3K4me1_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 000201mono.k4me1
+    longLabel MS000201 | human | monocyte | H3K4me1 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0002/MS000201/H3K4me1/MS000201.monocyte.H3K4me1.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=monocyte assayType=H3K4me1 view=signal
+    metadata EXPERIMENT_TYPE=H3K4me1 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=Monocyte TRACK_TYPE=signal ASSAY_TYPE=H3K4me1 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000576 DONOR_ID=McGill0002 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS000501_cd4phtc_H3K4me1_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 000501htc.k4me1
+    longLabel MS000501 | human | CD4-positive helper T cell | H3K4me1 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0005/MS000501/H3K4me1/MS000501.cd4phtc.H3K4me1.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=CD4positivehelperTcell assayType=H3K4me1 view=signal
+    metadata EXPERIMENT_TYPE=H3K4me1 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=CD4-positive_helper_T_cell TRACK_TYPE=signal ASSAY_TYPE=H3K4me1 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000492 DONOR_ID=McGill0005 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS007204_cd4phtc_H3K4me1_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 007204htc.k4me1
+    longLabel MS007204 | human | CD4-positive helper T cell | H3K4me1 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0072/MS007204/H3K4me1/MS007204.cd4phtc.H3K4me1.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=CD4positivehelperTcell assayType=H3K4me1 view=signal
+    metadata EXPERIMENT_TYPE=H3K4me1 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=CD4-positive_helper_T_cell TRACK_TYPE=signal ASSAY_TYPE=H3K4me1 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000492 DONOR_ID=McGill0072 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS007901_monocyte_H3K4me1_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 007901mono.k4me1
+    longLabel MS007901 | human | monocyte | H3K4me1 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0079/MS007901/H3K4me1/MS007901.monocyte.H3K4me1.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=monocyte assayType=H3K4me1 view=signal
+    metadata EXPERIMENT_TYPE=H3K4me1 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=Monocyte TRACK_TYPE=signal ASSAY_TYPE=H3K4me1 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000576 DONOR_ID=McGill0079 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Male
+
+    track McGill_MS001201_skeletalMuscle_H3K4me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 001201skeM.k4me3
+    longLabel MS001201 | human | skeletal muscle tissue | H3K4me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0012/MS001201/H3K4me3/MS001201.skeletalMuscle.H3K4me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=skeletalmuscletissue assayType=H3K4me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K4me3 ANALYSIS_GROUP=McGill DISEASE=Leigh_Disease TRACK_TYPE=signal ASSAY_TYPE=H3K4me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C84814&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/UBERON_0001134 DONOR_ID=McGill0012 DONOR_HEALTH_STATUS=Unknown_Mitochondrial_Disease DONOR_AGE=Adult MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_tissue TISSUE_TYPE=skeletal_muscle_tissue TISSUE_DEPOT=skeletal_muscle_tissue
+
+    track McGill_MS001301_skeletalMuscle_H3K4me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 001301skeM.k4me3
+    longLabel MS001301 | human | skeletal muscle tissue | H3K4me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0013/MS001301/H3K4me3/MS001301.skeletalMuscle.H3K4me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=skeletalmuscletissue assayType=H3K4me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K4me3 ANALYSIS_GROUP=McGill DISEASE=Leigh_Disease TRACK_TYPE=signal ASSAY_TYPE=H3K4me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C84814&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/UBERON_0001134 DONOR_ID=McGill0013 DONOR_HEALTH_STATUS=Unknown_Mitochondrial_Disease DONOR_AGE=11 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_tissue TISSUE_TYPE=skeletal_muscle_tissue TISSUE_DEPOT=skeletal_muscle_tissue
+
+    track McGill_MS000201_monocyte_H3K4me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 000201mono.k4me3
+    longLabel MS000201 | human | monocyte | H3K4me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0002/MS000201/H3K4me3/MS000201.monocyte.H3K4me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=monocyte assayType=H3K4me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K4me3 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=Monocyte TRACK_TYPE=signal ASSAY_TYPE=H3K4me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000576 DONOR_ID=McGill0002 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS000501_cd4phtc_H3K4me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 000501htc.k4me3
+    longLabel MS000501 | human | CD4-positive helper T cell | H3K4me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0005/MS000501/H3K4me3/MS000501.cd4phtc.H3K4me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=CD4positivehelperTcell assayType=H3K4me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K4me3 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=CD4-positive_helper_T_cell TRACK_TYPE=signal ASSAY_TYPE=H3K4me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000492 DONOR_ID=McGill0005 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS007204_cd4phtc_H3K4me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 007204htc.k4me3
+    longLabel MS007204 | human | CD4-positive helper T cell | H3K4me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0072/MS007204/H3K4me3/MS007204.cd4phtc.H3K4me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=CD4positivehelperTcell assayType=H3K4me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K4me3 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=CD4-positive_helper_T_cell TRACK_TYPE=signal ASSAY_TYPE=H3K4me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000492 DONOR_ID=McGill0072 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS007901_monocyte_H3K4me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 007901mono.k4me3
+    longLabel MS007901 | human | monocyte | H3K4me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0079/MS007901/H3K4me3/MS007901.monocyte.H3K4me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=monocyte assayType=H3K4me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K4me3 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=Monocyte TRACK_TYPE=signal ASSAY_TYPE=H3K4me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000576 DONOR_ID=McGill0079 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Male
+
+    track McGill_MS001201_skeletalMuscle_H3K9me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 001201skeM.k9me3
+    longLabel MS001201 | human | skeletal muscle tissue | H3K9me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0012/MS001201/H3K9me3/MS001201.skeletalMuscle.H3K9me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=skeletalmuscletissue assayType=H3K9me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K9me3 ANALYSIS_GROUP=McGill DISEASE=Leigh_Disease TRACK_TYPE=signal ASSAY_TYPE=H3K9me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C84814&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/UBERON_0001134 DONOR_ID=McGill0012 DONOR_HEALTH_STATUS=Unknown_Mitochondrial_Disease DONOR_AGE=Adult MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_tissue TISSUE_TYPE=skeletal_muscle_tissue TISSUE_DEPOT=skeletal_muscle_tissue
+
+    track McGill_MS001301_skeletalMuscle_H3K9me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 001301skeM.k9me3
+    longLabel MS001301 | human | skeletal muscle tissue | H3K9me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0013/MS001301/H3K9me3/MS001301.skeletalMuscle.H3K9me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=skeletalmuscletissue assayType=H3K9me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K9me3 ANALYSIS_GROUP=McGill DISEASE=Leigh_Disease TRACK_TYPE=signal ASSAY_TYPE=H3K9me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C84814&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/UBERON_0001134 DONOR_ID=McGill0013 DONOR_HEALTH_STATUS=Unknown_Mitochondrial_Disease DONOR_AGE=11 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_tissue TISSUE_TYPE=skeletal_muscle_tissue TISSUE_DEPOT=skeletal_muscle_tissue
+
+    track McGill_MS000201_monocyte_H3K9me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 000201mono.k9me3
+    longLabel MS000201 | human | monocyte | H3K9me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0002/MS000201/H3K9me3/MS000201.monocyte.H3K9me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=monocyte assayType=H3K9me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K9me3 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=Monocyte TRACK_TYPE=signal ASSAY_TYPE=H3K9me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000576 DONOR_ID=McGill0002 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS000501_cd4phtc_H3K9me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 000501htc.k9me3
+    longLabel MS000501 | human | CD4-positive helper T cell | H3K9me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0005/MS000501/H3K9me3/MS000501.cd4phtc.H3K9me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=CD4positivehelperTcell assayType=H3K9me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K9me3 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=CD4-positive_helper_T_cell TRACK_TYPE=signal ASSAY_TYPE=H3K9me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000492 DONOR_ID=McGill0005 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS007204_cd4phtc_H3K9me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 007204htc.k9me3
+    longLabel MS007204 | human | CD4-positive helper T cell | H3K9me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0072/MS007204/H3K9me3/MS007204.cd4phtc.H3K9me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=CD4positivehelperTcell assayType=H3K9me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K9me3 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=CD4-positive_helper_T_cell TRACK_TYPE=signal ASSAY_TYPE=H3K9me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000492 DONOR_ID=McGill0072 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Female
+
+    track McGill_MS007901_monocyte_H3K9me3_signal
+    type bigWig
+    parent ac3-i1-h2838 on
+    shortLabel 007901mono.k9me3
+    longLabel MS007901 | human | monocyte | H3K9me3 | signal
+    visibility full
+    bigDataUrl http://epigenomesportal.ca/public_data/donor/McGill0079/MS007901/H3K9me3/MS007901.monocyte.H3K9me3.signal.bigWig
+    maxHeightPixels 25:25:8
+    autoScale on
+    subGroups sampleType=monocyte assayType=H3K9me3 view=signal
+    metadata EXPERIMENT_TYPE=H3K9me3 ANALYSIS_GROUP=McGill DISEASE=Healthy CELL_TYPE=Monocyte TRACK_TYPE=signal ASSAY_TYPE=H3K9me3 DISEASE_ONTOLOGY_URI=http://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C115935&ns=NCI_Thesaurus SAMPLE_ONTOLOGY_URI=http://purl.obolibrary.org/obo/CL_0000576 DONOR_ID=McGill0079 MOLECULE=genomic_DNA BIOMATERIAL_TYPE=primary_cells TISSUE_TYPE=venous_blood DONOR_SEX=Male
+
