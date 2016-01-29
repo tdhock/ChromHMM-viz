@@ -1,0 +1,12 @@
+# http://epigenomesportal.ca/edcc/cgi-bin/hub.cgi?id=3277
+# noPeaks => no peaks in any tracks, no state change.
+# peakStart/End => at least one state change.
+chr21:22,274,584-22,350,732 noPeaks
+chr21:22,365,003-22,370,355 peakStart H3K27me3 monocyte erythroblast
+chr21:22,370,931-22,374,380 peakEnd H3K27me3 monocyte erythroblast
+chr21:22,466,356-22,486,056 noPeaks
+
+chr21:30,378,687-30,388,965 noPeaks
+chr21:30,398,468-30,403,548 peakStart H3K36me3 monocyte erythroblast
+chr21:30,434,912-30,452,910 peakEnd H3K36me3 monocyte erythroblast
+chr21:30,481,278-30,509,215 noPeaks

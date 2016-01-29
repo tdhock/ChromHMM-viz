@@ -14,3 +14,4 @@ chr1:62,891,090-62,898,449 noPeaks:all:all
 chr1:62,899,845-62,901,815 peakStart:H3K27ac:all peakStart:H3K4me1:all peakStart:H3K4me3:all
 
 # each line has either no chromatin state changes, or exactly 1 change.
+
